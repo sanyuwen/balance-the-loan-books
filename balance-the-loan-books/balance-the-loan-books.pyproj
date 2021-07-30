@@ -37,6 +37,9 @@
     <Compile Include="Loan.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="test_balance_the_loan_books.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
