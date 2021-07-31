@@ -61,20 +61,20 @@ class DataStore(object):
     def export_assignments(self, file_name = "assignments.csv"):
         full_path = self.get_full_path(file_name)
         with open(full_path, 'w') as csvfile:
-            csvwriter = csv.writer(csvfile)
-            csvwriter.writerow(["loan_id", "facility_id"])
+            contents = ["loan_id, facility_id\n"]
             for loan_id, facility_id in self.__assignments.items():
-                csvwriter.writerows([loan_id, facility_id])
+                contents.append(f"{loan_id},{facility_id}\n")
+            csvfile.writelines(contents)
         return full_path
 
     
     def export_yields(self, file_name = "yields.csv"):
         full_path = self.get_full_path(file_name)
         with open(full_path, 'w') as csvfile:
-            csvwriter = csv.writer(csvfile)
-            csvwriter.writerow(["facility_id", "expected_yield"])
+            contents = ["facility_id, expected_yield\n"]
             for id, facility in self.__all_facilities.items():
-                csvwriter.writerows([id, facility.yields])
+                contents.append(f"{id},{facility.yields}\n")
+            csvfile.writelines(contents)
         return full_path
                     
   

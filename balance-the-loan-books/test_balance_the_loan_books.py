@@ -29,11 +29,14 @@ class Test_test_balance_the_loan_books(unittest.TestCase):
 
         for id, loan in self.__loans.items():
             result = self.__dispatcher.dispatch(loan)
-            print(f"{id} => {result}")
+            #print(f"{id} => {result}")
             #self.assertEqual(result, desired_results[id])
 
-        for id, facility in self.__data_store.all_facilities.items():
-            print(f"{id} yields: {facility.yields}")
+        #for id, facility in self.__data_store.all_facilities.items():
+        #    print(f"{id} yields: {facility.yields}")
+        self.__data_store.export_assignments()
+        self.__data_store.export_yields()
+        
 
 if __name__ == '__main__':
     unittest.main()
